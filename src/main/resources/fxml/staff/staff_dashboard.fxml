@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Circle?>
+<?import java.net.URL?>
+
+<BorderPane xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.cybergame.ui.fxcontroller.StaffDashboardController"
+            prefWidth="1366" prefHeight="768"
+            style="-fx-background-color: -primary-color;">
+
+    <stylesheets>
+        <URL value="@../../css/base.css" />
+        <URL value="@../../css/admin.css" />
+    </stylesheets>
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="20" styleClass="top-bar" 
+              style="-fx-background-color: -secondary-color; -fx-padding: 15 25; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.4), 10, 0, 0, 5);">
+            
+            <Button fx:id="btnMenu" text="☰" styleClass="hamburger-button" 
+                    onAction="#handleToggleMenu"/>
+            
+            <Text text="CYBER STAFF PORTAL" 
+                  style="-fx-fill: white; -fx-font-weight: bold; -fx-font-size: 22px; -fx-font-family: 'Segoe UI';"/>
+            
+            <Region HBox.hgrow="ALWAYS"/>
+            
+            <HBox alignment="CENTER_RIGHT" spacing="15">
+                <VBox alignment="CENTER_RIGHT">
+                    <Label fx:id="lblStaffName" text="Nhân Viên" 
+                           style="-fx-text-fill: white; -fx-font-weight: bold; -fx-font-size: 14px;"/>
+                    <Label text="Đang trực ca" style="-fx-text-fill: #94a3b8; -fx-font-size: 12px;"/>
+                </VBox>
+                
+                <StackPane>
+                    <Circle radius="18" fill="#3b82f6"/>
+                    <Label text="NV" style="-fx-text-fill: white; -fx-font-weight: bold;"/>
+                </StackPane>
+
+                <Button text="Đăng xuất" 
+                        style="-fx-background-color: rgba(239, 68, 68, 0.2); -fx-text-fill: #f87171; -fx-border-color: #f87171; -fx-border-radius: 5; -fx-background-radius: 5; -fx-cursor: hand;" 
+                        onAction="#handleLogout"/>
+            </HBox>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox fx:id="sidebar" prefWidth="260" styleClass="sidebar" spacing="0" 
+              style="-fx-padding: 20 0;">
+            
+            <Label text="TRỰC CA" style="-fx-text-fill: #64748b; -fx-font-size: 11px; -fx-font-weight: bold; -fx-padding: 0 0 10 25;"/>
+
+            <Button text="📊   Tổng quan" maxWidth="Infinity" styleClass="sidebar-button" onAction="#showOverview"/>
+            <Button text="🖥   Sơ đồ máy trạm" maxWidth="Infinity" styleClass="sidebar-button" onAction="#showMachineMap"/>
+            <Button text="🎮   Quản lý phiên chơi" maxWidth="Infinity" styleClass="sidebar-button" onAction="#showSessionMgmt"/>
+            <Button text="🔔   Yêu cầu / Order" maxWidth="Infinity" styleClass="sidebar-button" onAction="#showOrderRequests"/>
+            
+            <Separator style="-fx-background-color: #334155; -fx-opacity: 0.3; -fx-padding: 10 0;"/>
+            
+            <Label text="KHÁCH HÀNG" style="-fx-text-fill: #64748b; -fx-font-size: 11px; -fx-font-weight: bold; -fx-padding: 15 0 5 25;"/>
+            <Button text="👥   Quản lý hội viên" maxWidth="Infinity" styleClass="sidebar-button" onAction="#showCustomerMgmt"/>
+            
+            <Region VBox.vgrow="ALWAYS"/>
+            
+            <VBox alignment="CENTER" spacing="2" style="-fx-padding: 0 0 10 0;">
+                <Label text="CYBER MANAGER" style="-fx-text-fill: #334155; -fx-font-weight: bold; -fx-font-size: 10px;"/>
+                <Label text="v2.0.1 Stable" style="-fx-text-fill: #334155; -fx-font-size: 9px;"/>
+            </VBox>
+        </VBox>
+    </left>
+
+    <center>
+        <StackPane fx:id="contentArea" style="-fx-padding: 20;">
+            <VBox alignment="CENTER" spacing="10">
+                <Text text="Sẵn sàng phục vụ!" style="-fx-fill: #334155; -fx-font-size: 30px; -fx-font-weight: bold;"/>
+                <Label text="Chọn chức năng từ menu bên trái để bắt đầu." style="-fx-text-fill: #64748b;"/>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>
